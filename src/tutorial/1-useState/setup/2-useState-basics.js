@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 // useState - value, function
+// hooks will always start with use
+// component name must be uppercase
+// must be in the function/ component body
 
 const UseStateBasics = () => {
   // new default value: text function that controls the value: setText
