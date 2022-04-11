@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
-// useState - function
+// useState - value, function
 
 const UseStateBasics = () => {
-  console.log(useState('hello world'));
-  const value = useState(1)[0];
-  // the function that controls the value in our state:
-  const handler = useState(1)[1];
-  console.log(value, handler);
-  return <h2>useState basic example</h2>;
+  // new default value: text function that controls the value: setText
+  const [ text, setText ] = useState('a title');
+  const handleClick = () => {
+    // checks current text value and changes it based on title
+    if (text === 'a title') {
+      setText('hello world');
+      // toggles back to a title/ hello world after each button click
+    } else {
+      setText('a title');
+    }
+  }
+
+  return <React.Fragment>
+    <h1>{text}</h1>
+    <button className='btn' onClick={handleClick}>change title</button>
+  </React.Fragment>;
 };
 
 export default UseStateBasics;
