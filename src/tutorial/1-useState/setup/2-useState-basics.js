@@ -7,8 +7,8 @@ const UseStateBasics = () => {
   const handleClick = () => {
     // checks current text value and changes it based on title
     if (text === 'a title') {
+      // anytime we invoke  the function, whatever value passed in will be the new state value
       setText('hello world');
-      // toggles back to a title/ hello world after each button click
     } else {
       setText('a title');
     }
