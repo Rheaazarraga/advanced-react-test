@@ -9,7 +9,7 @@ const UseStateArray = () => {
     // if the person id matches the one being passed in, remove it
     // return only the list of names that don't match the passed in person id
     let newPeople = people.filter((person) => person.id !== id)
-    // update 
+    // updated array 
     setPeople(newPeople);
   };
 
