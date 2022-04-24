@@ -10,13 +10,20 @@ const UseEffectCleanup = () => {
 
   const checkSize = () => {
     // should update the size value
-    setSize(window.innerWidth)
-  }
+    setSize(window.innerWidth) // triggers re-render
+  };
 
   useEffect(() => {
+    console.log('useEffect');
     // every time resize event takes place, the checkSize event function is invoked
     window.addEventListener('resize', checkSize)
-  })
+    return () => {
+      // will be invoked when we exit
+      console.log('cleanup');
+      window.removeEventListener('resize', checkSize)
+    }
+  });
+  console.log('render');
 
   return (
     <>
