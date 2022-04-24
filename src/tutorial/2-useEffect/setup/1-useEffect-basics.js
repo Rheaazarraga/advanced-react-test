@@ -11,7 +11,7 @@ const UseEffectBasics = () => {
     if (value >= 1) {
       document.title = `New Msgs(${value})`;
     }
-  }, [value])
+  }, [ value ]);
   console.log('render component"');
   return (
     <>
