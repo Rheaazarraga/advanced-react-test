@@ -8,7 +8,7 @@ const UseEffectFetchData = () => {
   const getUsers = async() => {
     const response = await fetch(url);
     const users = await response.json();
-    // setUsers(users); will update the default users value - will cause an infinite loop because the useEffect will trigger a re-render and 
+    // setUsers(users); will update the default users value - will cause an infinite loop because the useEffect will trigger a re-render
     console.log(users);
   }
 
