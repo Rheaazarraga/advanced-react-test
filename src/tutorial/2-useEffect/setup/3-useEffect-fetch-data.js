@@ -16,7 +16,7 @@ const UseEffectFetchData = () => {
     // perform fetch request
     // cannot make useEffect function async await because it returns a promise
     getUsers();
-  })
+  }, []);
   return (
     <>
       <h3>github users</h3>
