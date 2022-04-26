@@ -3,17 +3,29 @@ const url = 'https://api.github.com/users/QuincyLarson';
 const MultipleReturns = () => {
   const [ isloading, setIsLoading ] = useState(true);
   const [ isError, setIsError ] = useState(false);
-  const [ user, Setuser ] = useState('default user');
+  const [ user, setUser ] = useState('default user');
 
+  // set up fetch request in useEffect to control conditions
+  useEffect(() => {
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((user) => {
+        const { login } = user;
+        setUser(login)
+        // user is logged in so show user instead of Loading... or default user
+        setIsLoading(false)
+      })
+      .catch(error => console.log(error));
+  }, [])
 
   if (isloading) {
     return (
-    <div>
-      <h1>Loading...</h1>
-    </div>
+      <div>
+        <h1>Loading...</h1>
+      </div>
     );
   }
-  
+
   if (isError) {
     return (
       <div>
@@ -22,7 +34,11 @@ const MultipleReturns = () => {
     );
   }
 
-  return <h2>multiple returns</h2>;
+  return (
+    <div>
+      <h1>{user}</h1>
+    </div>
+  );
 };
 
 export default MultipleReturns;
